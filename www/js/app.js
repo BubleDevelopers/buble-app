@@ -1,9 +1,6 @@
 (function() {
-    'use strict';
+	'use strict';
 
-    angular
-    .module('app', [])
-    .controller('MainCtrl', function() {
-        console.log('Successfully initialized');
-    });
+	angular
+	.module('app', []);
 })();
