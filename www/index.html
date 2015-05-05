@@ -1,32 +1,56 @@
 <!doctype html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="msapplication-tap-highlight" content="no" />
-        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/app.css" />
-        <title>Buble App</title>
-    </head>
-    <body ng-app="app">
-        <div ng-controller="MainCtrl">
-            <button type="button" ng-click="getLocation()">Fetch location</button>
-            <div id="location-badge" ng-show="location">
-                You are at ({{location.coords.latitude}}, {{location.coords.longitude}}).
-            </div>
-        </div>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="msapplication-tap-highlight" content="no" />
+		<!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+		<link rel="stylesheet" type="text/css" href="css/semantic.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<title>Buble App</title>
+	</head>
+	<body ng-app="app">
+		<div class="ui centered page grid" ng-controller='MainCtrl'>
+			<div class="center aligned eight wide column">
+				<h1 class="ui header">Welcome to Buble!</h1>
+				<div class="ui horizontal header divider">
+					Your Location
+				</div>
+				<div class="ui top attached blue segment" ng-class="{loading: location.loading}" ng-show="location" >
+					<p>You are at ({{location.coords.latitude}}, {{location.coords.longitude}}).</p>
+					<p>What's the name of the place that you're at? Is it one of the following?</p>
+					<div class="ui two cards">
+						<div class="card">
+							<div class="left aligned content">
+								<div class="header"><i class="map marker icon"></i>Krowlewskie Jadlo</div>
+								<div class="description">An excellent polish restaurant, quick delivery and hearty, filling meals.</div>
+							</div>
+							<div class="ui bottom attached green button">
+								<i class="check icon"></i>
+								I'm here!
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="ui top attached red segment" ng-hide="location">
+					<p>We don't know where you're at yet! Please check in!</p>
+				</div>
+				<button type="button" class="fluid ui bottom attached green button" ng-click="getLocation()">Fetch location</button>
+			</div>
+		</div>
 
-        <!-- Library Scripts -->
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/lib/jquery.min.js"></script>
-        <script type="text/javascript" src="js/lib/angular.min.js"></script>
-        <script type="text/javascript" src="js/lib/lodash.min.js"></script>
+		<!-- Library Scripts -->
+		<script type="text/javascript" src="cordova.js"></script>
+		<script type="text/javascript" src="js/lib/jquery.min.js"></script>
+		<script type="text/javascript" src="js/lib/semantic.js"></script>
+		<script type="text/javascript" src="js/lib/lodash.min.js"></script>
+		<script type="text/javascript" src="js/lib/angular.min.js"></script>
 
-        <!-- User Scripts -->
-        <script type="text/javascript" src="js/app.js"></script>
-        <script type="text/javascript" src="js/services/cordova-ready.js"></script>
-        <script type="text/javascript" src="js/services/cordova-geolocation.js"></script>
-        <script type="text/javascript" src="js/controllers/main-ctrl.js"></script>
-    </body>
+		<!-- User Scripts -->
+		<script type="text/javascript" src="js/app.js"></script>
+		<script type="text/javascript" src="js/services/cordova-ready.js"></script>
+		<script type="text/javascript" src="js/services/cordova-geolocation.js"></script>
+		<script type="text/javascript" src="js/controllers/main-ctrl.js"></script>
+	</body>
 </html>

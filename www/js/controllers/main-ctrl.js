@@ -12,6 +12,7 @@
 		// });
 
 		$scope.getLocation = function() {
+			$scope.location = { loading: true };
 			geolocation.getCurrentPosition()
 				.then(function(pos) {
 					$scope.location = pos;
