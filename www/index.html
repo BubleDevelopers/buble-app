@@ -23,7 +23,7 @@
 					<div class="ui two cards">
 						<div class="card">
 							<div class="left aligned content">
-								<div class="header"><i class="map marker icon"></i>Krowlewskie Jadlo</div>
+								<div class="header"><i class="map marker icon"></i> Krowlewskie Jadlo</div>
 								<div class="description">An excellent polish restaurant, quick delivery and hearty, filling meals.</div>
 							</div>
 							<div class="ui bottom attached green button">
@@ -36,7 +36,14 @@
 				<div class="ui top attached red segment" ng-hide="location">
 					<p>We don't know where you're at yet! Please check in!</p>
 				</div>
-				<button type="button" class="fluid ui bottom attached green button" ng-click="getLocation()">Fetch location</button>
+				<div class="ui bottom attached green button" ng-click="getLocation()" ng-if="!location">
+					<i class="map marker icon"></i>
+					Fetch Location
+				</div>
+				<div class="ui bottom attached blue button" ng-click="getLocation()" ng-if="location && !location.loading">
+					<i class="refresh icon"></i>
+					Refresh Location
+				</div>
 			</div>
 		</div>
 
