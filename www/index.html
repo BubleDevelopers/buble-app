@@ -18,20 +18,8 @@
 					Your Location
 				</div>
 				<div class="ui top attached blue segment" ng-class="{loading: location.loading}" ng-show="location" >
-					<p><b>You are near ({{location.coords.latitude}}, {{location.coords.longitude}}).</b></p>
+					<p><b>You are near {{location.address.formatted_address}}.</b></p>
 					<p><b>What's the name of the place that you're at? Is it one of the following?</b></p>
-					<div class="ui top attached segment">
-						<p>
-							I'm at a private residence at <strong>{{location.address.formatted_address}}</strong>. It doesn't have a name!
-						</p>
-					</div>
-					<div class="ui bottom attached green button" ng-click="setPlace(location)">
-						<i class="check icon"></i>
-						I'm here!
-					</div>
-					<div class="ui horizontal header divider">
-						OR
-					</div>
 					<div class="ui two cards">
 						<div class="card" ng-repeat="place in places">
 							<div class="left aligned content">
