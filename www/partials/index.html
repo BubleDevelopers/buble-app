@@ -1,0 +1,23 @@
+<div class="ui horizontal header divider">
+	You
+</div>
+<div class="ui segment" ng-class="{red: !user.username, green: user.username}">
+	<p>We don't know your name! Who are you?</p>
+	<div class="ui big fluid transparent icon input">
+		<input type="text" placeholder="John Smith" ng-model="user.username">
+		<i class="asterisk icon"></i>
+	</div>
+</div>
+
+<div class="ui segment" ng-class="{loading: !location.coords, blue: !location.coords, green: location.coords}">
+	<p ng-hide="location.address">
+		<b>You are near ({{location.coords.latitude}}, {{location.coords.longitude}})</b>
+	</p>
+	<p ng-show="location.address"><b>You are near {{location.address.formatted_address}}.</b></p>
+	<p>We will show you a list of locations near you to check in next.</p>
+</div>
+
+<button class="ui fluid green button" ng-disabled="!user.username || !location.address" ng-click="advance()">
+	Next
+	<i class="arrow right icon"></i>
+</button>
