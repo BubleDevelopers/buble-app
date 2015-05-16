@@ -4,16 +4,17 @@
 	angular
 	.module('app')
 	.controller('AppCtrl', function($scope, locator) {
-		$scope.getLocation = function() {
-			locator.fetchLocation()
-				.then(function() {
-					$scope.location = locator.getLocation();
-					locator.fetchAddress();
-				});
-		};
+		
+		$scope.location = {};
 
-		$scope.getLocation();
+		locator.geo.then(function(data) {
+			$scope.location.geo = data;
+		});
 
+		locator.address.then(function(data) {
+			$scope.location.address = data;
+		});
+		
 		$scope.user = {};
 	});
 })();

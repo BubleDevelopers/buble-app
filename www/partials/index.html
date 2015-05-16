@@ -9,9 +9,9 @@
 	</div>
 </div>
 
-<div class="ui segment" ng-class="{loading: !location.coords, blue: !location.coords, green: location.coords}">
+<div class="ui segment" ng-class="{loading: !location.geo, blue: !location.geo, green: location.geo}">
 	<p ng-hide="location.address">
-		<b>You are near ({{location.coords.latitude}}, {{location.coords.longitude}})</b>
+		<b>You are near ({{location.geo.coords.latitude}}, {{location.geo.coords.longitude}})</b>
 	</p>
 	<p ng-show="location.address"><b>You are near {{location.address.formatted_address}}.</b></p>
 	<p>We will show you a list of locations near you to check in next.</p>

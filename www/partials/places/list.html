@@ -1,9 +1,11 @@
-<div class="ui top attached blue segment" ng-class="{loading: !places}">
-	<p><b>Hi {{user.username}}!</b></p>
+<div class="ui horizontal header divider">
+	Hi, {{user.username}}!
+</div>
+<div class="ui top attached blue segment" ng-class="{loading: !nearbyPlaces}">
 	<p><b>You are near {{location.address.formatted_address}}.</b></p>
 	<p><b>What's the name of the place that you're at? Is it one of the following?</b></p>
 	<div class="ui two cards">
-		<div class="card" ng-repeat="place in places">
+		<div class="card" ng-repeat="place in nearbyPlaces">
 			<div class="left aligned content">
 				<div class="header"><i class="map marker icon"></i> {{place.name}}</div>
 				<div class="description">
@@ -22,7 +24,7 @@
 		</div>
 	</div>
 </div>
-<div class="ui bottom attached blue button" ng-click="getLocation()" ng-hide="location.loading">
+<div class="ui bottom attached blue button" ng-click="refreshLocation()" ng-hide="location.loading">
 	<i class="refresh icon"></i>
 	Refresh Location
 </div>
