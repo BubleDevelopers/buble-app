@@ -2,9 +2,10 @@
 .DS_Store
 # Node
 npm-debug.log
-app/node_modules
 
-app/platforms
+node_modules
+platforms
+plugins
 
 # ANDROID / ECLIPSE
 # built application files
