@@ -19,7 +19,7 @@
 		};
 
 		$scope.setPlace = function(place) {
-			console.log(place);
+			locator.place = place;
 			$location.url('/places/' + place.place_id + '/people');
 		};
 	});

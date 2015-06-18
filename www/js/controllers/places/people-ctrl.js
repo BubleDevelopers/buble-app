@@ -3,10 +3,12 @@
 
 	angular
 	.module('app')
-	.controller('PlacesPeopleCtrl', function($scope, $location, $routeParams, locator) {
+	.controller('PlacesPeopleCtrl', function($scope, $location, $routeParams, locator, checkInService) {
 		
 		$scope.placeId = $routeParams.placeId;
 		$scope.place = locator.place;
-		console.log($scope.place);
+		
+		$scope.checkIn = checkInService.checkIn;
+		$scope.checkOut = checkInService.checkOut;
 	});
 })();

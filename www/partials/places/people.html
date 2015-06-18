@@ -2,6 +2,8 @@
 	{{place.name}}
 </div>
 <div class="ui segment">
+	<div class="ui button red" ng-click="checkOut(placeId)">I'm leaving this place.</div>
+	
 	The following people are currently also checked in here:
 	<p ng-repeat="person in people">
 		{{person.name}}

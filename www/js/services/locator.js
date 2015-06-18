@@ -103,7 +103,8 @@
 			},
 			get nearbyPlaces() {
 				return get('nearbyPlaces', locator.debug, { geo: locator.geo });
-			}
+			},
+			place: null
 		};
 
 		return locator;
