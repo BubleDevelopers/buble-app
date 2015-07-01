@@ -13,7 +13,8 @@
 			checkIn: function(userId, placeId, lat, long) {
 				console.log('Checking in to ' + placeId);
 				var data = {
-					userId: userId || 12345,
+					// Max's hardcoded user ID (for testing)
+					userId: userId || '559365b34a1ac2be59f41cb8',
 					location: {
 						lat: lat,
 						long: long,

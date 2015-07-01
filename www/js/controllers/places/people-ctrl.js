@@ -3,7 +3,7 @@
 
 	angular
 	.module('app')
-	.controller('PlacesPeopleCtrl', function($scope, $location, $routeParams, locator, checkInService) {
+	.controller('PlacesPeopleCtrl', function($scope, $location, $routeParams, locator, checkInService, userService) {
 		
 		$scope.placeId = $routeParams.placeId;
 		$scope.place = locator.place;
@@ -18,6 +18,14 @@
 		checkInService.getPeopleAtLocation($scope.placeId).then(function(checkins) {
 			console.log(checkins);
 			$scope.checkins = checkins.data;
+			$scope.people = [];
+			$scope.checkins.forEach(function(checkin) {
+				userService.getUserById(checkin.userId)
+					.then(function(user) {
+						console.log(user);
+						$scope.people.push(user.data);
+					});
+			});
 		});
 	});
 })();
