@@ -10,18 +10,24 @@
 		var DEFAULT_RADIUS = 100;
 
 		return {
-			checkIn: function(placeId, lat, long) {
-				return $http({
-					url: URL_ROOT,
-					method: 'POST',
-					data: {
+			checkIn: function(userId, placeId, lat, long) {
+				console.log('Checking in to ' + placeId);
+				var data = {
+					userId: userId || 12345,
+					location: {
 						lat: lat,
 						long: long,
 						placeId: placeId
 					}
+				};
+				return $http({
+					url: URL_ROOT,
+					method: 'POST',
+					data: data
 				});
 			},
 			checkOut: function(checkInId) {
+				console.log('Deleting checkin ' + checkInId);
 				return $http({
 					url: URL_ROOT + '/' + checkInId,
 					method: 'DELETE'
