@@ -13,9 +13,9 @@
 				templateUrl: 'partials/places/list.html',
 				controller: 'PlacesListCtrl'
 			})
-			.when('/places/:placeId/people', {
-				templateUrl: 'partials/places/people.html',
-				controller: 'PlacesPeopleCtrl'
+			.when('/places/:placeId/detail', {
+				templateUrl: 'partials/places/detail.html',
+				controller: 'PlacesDetailCtrl'
 			});
 	});
 })();

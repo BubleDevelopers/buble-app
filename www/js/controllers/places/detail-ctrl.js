@@ -3,7 +3,7 @@
 
 	angular
 	.module('app')
-	.controller('PlacesPeopleCtrl', function($scope, $location, $routeParams, locator, checkInService, userService) {
+	.controller('PlacesDetailCtrl', function($scope, $location, $routeParams, locator, checkInService, userService) {
 		
 		$scope.placeId = $routeParams.placeId;
 		$scope.place = locator.place;

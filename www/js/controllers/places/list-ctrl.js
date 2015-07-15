@@ -20,7 +20,7 @@
 
 		$scope.setPlace = function(place) {
 			locator.place = place;
-			$location.url('/places/' + place.place_id + '/people');
+			$location.url('/places/' + place.place_id + '/detail');
 		};
 	});
 })();
