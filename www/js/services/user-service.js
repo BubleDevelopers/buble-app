@@ -13,6 +13,12 @@
 					url: URL_ROOT + '/' + userId,
 					method: 'GET'
 				});
+			},
+			getCurrentUser: function() {
+				return $http({
+					url: URL_ROOT + '/me',
+					method: 'GET'
+				});
 			}
 		};
 	});
